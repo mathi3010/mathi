@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prediction - Cone Inspection</title>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Global font */
+    body, .app-container, .header, .sidebar, .main-area, button {
+      font-family: "Times New Roman", Times, serif;
+    }
+
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      background: linear-gradient(135deg, #fdfaf6, #f3eee9);
+    }
+    .app-container {
+      width: 900px;
+      height: 668px;
+      background-color: #fdfaf6;
+      display: flex;
+      flex-direction: column;
+      border: 2px solid #7b1e22;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    /* Header */
+    .header {
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #7b1e22;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 0 20px;
+    }
+    .header .title {
+      flex: 1;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff; /* plain white text */
+    }
+    .header .logo img {
+      height: 25px;
+    }
+
+    /* Content layout */
+    .content {
+      flex: 1;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 200px;
+      background: #7b1e22;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 0;
+    }
+    .sidebar button {
+      margin: 10px 10px;
+      padding: 10px 10px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      background: #f8f5ef;
+      font-size: 16px;
+      font-weight: bold;
+      color: #3a2a2a;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: 0.3s;
+    }
+    .sidebar button:hover {
+      background: #fff7e6;
+      transform: translateX(4px);
+    }
+    .sidebar button.active {
+      border: 2px solid #e6a63c;
+      box-shadow: 0 0 6px #e6a63c;
+    }
+    .sidebar button i {
+      font-size: 18px;
+      color: #7b1e22;
+    }
+
+    /* Main Area */
+    .main-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+      gap: 15px;
+    }
+    .middle {
+      flex: 1;
+      display: flex;
+      gap: 15px;
+    }
+    .camera-feed {
+      flex: 6;
+      background: #111;
+      border-radius: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #bbb;
+      font-size: 20px;
+      position: relative;
+    }
+    .result-card {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      padding: 14px 22px;
+      background: #d9fdd3;
+      border-left: 6px solid green;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #2b662b;
+    }
+    .right-panel {
+      flex: 4;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .sub-box {
+      flex: 1;
+      background: rgba(20,20,20,0.9);
+      border-radius: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    /* Control buttons now in right panel */
+    .control-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: #f6f1ec;
+      border-radius: 12px;
+      padding: 15px;
+      align-items: center;
+      justify-content: center;
+    }
+    .control-panel button {
+      width: 120px;
+      padding: 12px 0;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .control-panel button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .btn-auto, .btn-manual {
+      background: #fff;
+      border: 2px solid #7b1e22;
+      color: #7b1e22;
+    }
+    .btn-save {
+      background: linear-gradient(135deg, #7b1e22, #a8323a);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <div class="header">
+      <div class="title">Prediction – Cone Inspection</div>
+      <div class="logo"><img src="D:/HTML/texa_logo.png" alt="TEXA Logo"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <button><i class="fa fa-home"></i> Home</button>
+        <button class="active"><i class="fa fa-sliders-h"></i> Prediction</button>
+        <button><i class="fa fa-file-alt"></i> Report</button>
+        <button><i class="fa fa-cog"></i> Settings</button>
+      </div>
+
+      <!-- Main Area -->
+      <div class="main-area">
+        <div class="middle">
+          <!-- Camera Feed -->
+          <div class="camera-feed">
+            [ Live Camera Feed ]
+            <div class="result-card">Prediction: GOOD | Accuracy: 98%</div>
+          </div>
+
+          <!-- Right Panel -->
+          <div class="right-panel">
+            <div class="sub-box">Thread View</div>
+            <div class="sub-box">Ring View</div>
+
+            <!-- Control Panel moved here -->
+            <div class="control-panel">
+              <button class="btn-auto">AUTO</button>
+              <button class="btn-manual">MANUAL</button>
+              <button class="btn-save">SAVE RESULT</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
