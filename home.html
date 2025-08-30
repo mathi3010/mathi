@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Cone Inspection</title>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Global font */
+    body, .app-container, .header, .sidebar, .main-area, .bottom, button {
+      font-family: "Times New Roman", Times, serif;
+    }
+
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      background: #fdfaf6;
+    }
+    .app-container {
+      width: 1152px;
+      height: 768px;
+      background-color: #fdfaf6;
+      display: flex;
+      flex-direction: column;
+      border: 2px solid #7b1e22;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    /* Header */
+    .header {
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #7b1e22;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 0 20px;
+      z-index: 2;
+    }
+    .header .title {
+      flex: 1;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+    }
+    .header .logo img {
+      height: 30px;
+    }
+
+    /* Content layout */
+    .content {
+      flex: 1;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 200px;
+      background: #7b1e22;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 0;
+      z-index: 2;
+    }
+    .sidebar button {
+      margin: 10px 12px;
+      padding: 10px 12px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      background: #f8f5ef;
+      font-size: 16px;
+      font-weight: bold;
+      color: #3a2a2a;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: 0.3s;
+    }
+    .sidebar button:hover {
+      background: #fff7e6;
+      transform: translateX(4px);
+    }
+    .sidebar button.active {
+      border: 2px solid #e6a63c;
+      box-shadow: 0 0 6px #e6a63c;
+    }
+    .sidebar button i {
+      font-size: 18px;
+      color: #7b1e22;
+    }
+
+    /* Main Hero Area */
+    .hero {
+      flex: 1;
+      position: relative;
+      background: url("D:/HTML/cone_home.png") center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4); /* dark overlay */
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+    }
+    .hero-content h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+    .hero-content p {
+      font-size: 20px;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    }
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .hero-buttons button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .hero-buttons button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .btn-start {
+      background: linear-gradient(135deg, #7b1e22, #a8323a);
+      color: #fff;
+    }
+    .btn-report {
+      background: #fff;
+      border: 2px solid #7b1e22;
+      color: #7b1e22;
+    }
+    .btn-settings {
+      background: #999;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <div class="header">
+     
+      <div class="title">Cone Inspection System</div>
+      <div class="logo"><img src="D:/HTML/texa_logo.png" alt="TEXA Logo"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <button class="active"><i class="fa fa-home"></i> Home</button>
+        <button><i class="fa fa-sliders-h"></i> Controller</button>
+        <button><i class="fa fa-file-alt"></i> Report</button>
+        <button><i class="fa fa-cog"></i> Settings</button>
+      </div>
+
+      <!-- Hero Main Area -->
+      <div class="hero">
+        <div class="hero-content">
+          <h1>Welcome to Cone Inspection System</h1>
+          <p>Smart Yarn Cone Quality Assurance</p>
+          <div class="hero-buttons">
+            <button class="btn-start">Start Inspection</button>
+            <button class="btn-report">Reports</button>
+            <button class="btn-settings">Settings</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
